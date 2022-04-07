@@ -1,4 +1,5 @@
-<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+<div class="form-div">
+<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="login()">
     <nz-form-item>
       <nz-form-control nzErrorTip="Please input your username!">
         <nz-input-group nzPrefixIcon="user">
@@ -23,7 +24,7 @@
         <a class="login-form-forgot">Forgot password</a>
       </div>
     </div>
-    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
+    <button type="submit" nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
     Or
-    <a>register now!</a>
-  </form>
+    <a routerLink="/register">register now!</a>
+  </form></div>

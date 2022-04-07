@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
@@ -80,6 +81,7 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzResizableModule } from 'ng-zorro-antd/resizable';
 import { NzPipesModule } from 'ng-zorro-antd/pipes';
+import { RegisterComponent } from './register/register.component';
 
 
 registerLocaleData(en);
@@ -87,14 +89,17 @@ registerLocaleData(en);
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule, 
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-     HttpClientModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     IconsProviderModule,
     NzAffixModule,
@@ -164,7 +169,7 @@ registerLocaleData(en);
     NzUploadModule,
     NzWaveModule,
     NzResizableModule,
-    NzPipesModule
+    NzPipesModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

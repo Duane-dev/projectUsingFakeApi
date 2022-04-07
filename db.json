@@ -1,0 +1,76 @@
+{
+  "Users": [
+    {
+      "id": 1,
+      "userName": "Plastic@gmail.com",
+      "password": "Shirt",
+      "accountType": "Admin"
+    },
+    {
+      "id": 2,
+      "userName": "Generic@gmail.com",
+      "password": "Compatible",
+      "accountType": "Admin"
+    },
+    {
+      "id": 3,
+      "userName": "Borders@gmail.com",
+      "password": "Avon",
+      "accountType": "User"
+    },
+    {
+      "id": 4,
+      "userName": "SCSI@gmail.com",
+      "password": "Coves",
+      "accountType": "User"
+    },
+    {
+      "id": 5,
+      "userName": "Phased@gmail.com",
+      "password": "exploit",
+      "accountType": "User"
+    },
+    {
+      "id": 6,
+      "userName": "ADP@gmail.com",
+      "password": "Borders",
+      "accountType": "User"
+    },
+    {
+      "id": 7,
+      "userName": "compress@gmail.com",
+      "password": "state",
+      "accountType": "User"
+    },
+    {
+      "id": 8,
+      "userName": "Money@gmail.com",
+      "password": "Plastic",
+      "accountType": "Admin"
+    },
+    {
+      "id": 9,
+      "userName": "Forest@gmail.com",
+      "password": "Loan",
+      "accountType": "User"
+    },
+    {
+      "id": 10,
+      "userName": "New@gmail.com",
+      "password": "extensible",
+      "accountType": "User"
+    },
+    {
+      "id": 11,
+      "userName": "test1",
+      "password": "test",
+      "accountType": "Admin"
+    },
+    {
+      "id": 12,
+      "userName": "test2",
+      "password": "test",
+      "accountType": "Admin"
+    }
+  ]
+}
