@@ -7,7 +7,7 @@
 
 // @NgModule({
 //   imports: [WelcomeRoutingModule],
-//   declarations: [WelcomeComponent],
+//   declarations: [],
 //   exports: [WelcomeComponent]
 // })
 // export class WelcomeModule { }

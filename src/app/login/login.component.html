@@ -1,9 +1,9 @@
-<div class="form-div">
+<div class="form-div" onload="checkUser()">
 <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="login()">
     <nz-form-item>
-      <nz-form-control nzErrorTip="Please input your username!">
+      <nz-form-control nzErrorTip="Please input your email!">
         <nz-input-group nzPrefixIcon="user">
-          <input type="text" nz-input formControlName="userName" placeholder="Username" />
+          <input type="email" nz-input formControlName="email" placeholder="Email" />
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>

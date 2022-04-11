@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WelcomeComponent } from './welcome.component';
+import { AccountManagementComponent } from 'src/app/account-management/account-management.component';
 
 const routes: Routes = [
-  { path: '', component: WelcomeComponent },
+  { path: 'account', component: AccountManagementComponent },
 ];
 
 @NgModule({

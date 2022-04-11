@@ -1,6 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'app-register',
@@ -45,19 +48,31 @@ export class RegisterComponent implements OnInit {
     e.preventDefault();
   }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private http: HttpClient, private notification: NzNotificationService, private router: Router) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      email: [null, [Validators.email, Validators.required]],
-      password: [null, [Validators.required]],
-      checkPassword: [null, [Validators.required, this.confirmationValidator]],
-      nickname: [null, [Validators.required]],
-      phoneNumberPrefix: ['+86'],
-      phoneNumber: [null, [Validators.required]],
-      website: [null, [Validators.required]],
-      captcha: [null, [Validators.required]],
-      agree: [false]
+      id:[''],
+      email: ['', [Validators.email, Validators.required]],
+      password: ['', [Validators.required]],
+      checkPassword: ['', [Validators.required, this.confirmationValidator]],
+      name: ['', [Validators.required]],
+      accountType:['User']
     });
+  }
+  signUp(){
+    this.http.post<any>("http://localhost:3000/Users", this.validateForm.value)
+    .subscribe(res=>{
+      this.notification.success('success','Login Successful',{
+        nzDuration: 2000,
+        nzPauseOnHover: false,
+        nzAnimate: true,
+
+      })
+      setTimeout(()=>{
+      this.validateForm.reset();
+      this.router.navigate(['login'])
+      },2000);
+    })
   }
 }
