@@ -1,3 +1,7 @@
+<form nz-form [formGroup]="searchForm" (ngSubmit)="search()">
+<input type="text" nz-input formControlName="search" placeholder="Search" />
+<button type="submit" nz-button [nzType]="'primary'">Search</button>
+</form>
 <nz-table>
     <thead>
         <tr>
@@ -9,7 +13,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let row of userData">
+        
+        <tr *ngFor = "let row of userPage">
             <td>{{row.id}}</td>
             <td>{{row.email}}</td>
             <td>{{row.password}}</td>
@@ -19,6 +24,12 @@
                 <button nz-button nzType="primary" (click)= "onEdit(row)">Edit</button>
                 <button nz-button nzDanger (click)= "deleteUser(row)">Delete</button>
             </td>
+
         </tr>
+        <nz-pagination [nzPageIndex]="1" [nzPageSize]="10" [nzTotal]="userData.length" (nzPageIndexChange)="onPageIndexChange($event)">
+        </nz-pagination> 
+
     </tbody>
+    
 </nz-table>
+

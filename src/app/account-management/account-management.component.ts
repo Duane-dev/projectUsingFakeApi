@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , EventEmitter} from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
@@ -11,12 +11,19 @@ import { accountManagementModel } from './account_management.model';
 })
 export class AccountManagementComponent implements OnInit {
   userForm !: FormGroup;
+  searchForm !: FormGroup;
   accountMManagementmodelObj : accountManagementModel = new accountManagementModel();
   userData !: any;
+  userPage !: any;
+  pageStart :number = 0;
+  pageEnd : number = 10; 
   showAdd !: boolean;
   showUpdate !: boolean;
   constructor(private formbuilder: FormBuilder, private api : ApiService, private notification: NzNotificationService) { }
   ngOnInit(): void {
+    this.searchForm = this.formbuilder.group({
+      search : ['']
+    })
     this.userForm = this.formbuilder.group({
       email : [''],
       password : [''],
@@ -29,6 +36,7 @@ export class AccountManagementComponent implements OnInit {
     this.showAdd = true;
     this.showUpdate = false;
   }
+
   postUserDetails(){
     this.accountMManagementmodelObj.email = this.userForm.value.email;
     this.accountMManagementmodelObj.password = this.userForm.value.password;
@@ -58,8 +66,18 @@ export class AccountManagementComponent implements OnInit {
     this.api.getUser()
     .subscribe(res=>{
       this.userData = res;
+      this.userPage = res.slice(this.pageStart,this.pageEnd);
+
     })
   }
+  search(){
+    
+  }
+  onPageIndexChange($event: number) {
+    this.pageEnd = $event * 10;
+    this.pageStart = ($event * 10) -10;
+    this.getAllUsers()
+    }
   deleteUser(row : any){
     this.api.deleteUser(row.id)
     .subscribe(res=>{

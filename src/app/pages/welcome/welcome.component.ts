@@ -29,6 +29,6 @@ export class WelcomeComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['login'])
   }
-  array = [1, 2, 3, 4];
+  carousel = [1, 2, 3, 4];
   effect = 'scrollx';
 }

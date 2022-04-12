@@ -23,7 +23,10 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private http : HttpClient, private router:Router, private notification: NzNotificationService) {}
 
   ngOnInit(): void {
-
+    this.checkStatus = this.localStorageItem();
+    if(this.checkStatus == true){
+      this.router.navigate(['welcome'])
+    }
     this.validateForm = this.fb.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
