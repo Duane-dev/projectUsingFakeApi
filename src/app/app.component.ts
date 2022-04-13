@@ -16,7 +16,6 @@ export class AppComponent  implements OnInit {
     if(this.checkStatus == false){
       this.router.navigate(['login'])
     }
-    console.log(this.checkStatus)
   }
   
   public localStorageItem(): boolean {

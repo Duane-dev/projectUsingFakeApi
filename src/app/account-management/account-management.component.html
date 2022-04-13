@@ -1,20 +1,26 @@
-<form nz-form [formGroup]="searchForm" (ngSubmit)="search()">
+<!-- <form nz-form [formGroup]="searchForm" (ngSubmit)="search()">
 <input type="text" nz-input formControlName="search" placeholder="Search" />
-<button type="submit" nz-button [nzType]="'primary'">Search</button>
-</form>
-<nz-table>
+<button type="submit" nz-button >Search</button>
+</form> -->
+<nz-table e #filterTable [nzData]="listOfData" nzTableLayout="fixed">
     <thead>
         <tr>
-            <th scope="col">User ID</th>
-            <th scope="col">User Email</th>
-            <th scope="col">User Password</th>
-            <th scope="col">Account Type</th>
-            <th scope="col">Action</th>
+            <th
+            *ngFor="let column of listOfColumns"
+            [nzSortOrder]="column.sortOrder"
+            [nzSortFn]="column.sortFn"
+            [nzSortDirections]="column.sortDirections"
+            [nzFilterMultiple]="column.filterMultiple"
+            [nzFilters]="column.listOfFilter"
+            [nzFilterFn]="column.filterFn"
+          >
+            {{ column.name }}
+          </th>
         </tr>
     </thead>
     <tbody>
         
-        <tr *ngFor = "let row of userPage">
+        <tr *ngFor = "let row of filterTable.data">
             <td>{{row.id}}</td>
             <td>{{row.email}}</td>
             <td>{{row.password}}</td>
