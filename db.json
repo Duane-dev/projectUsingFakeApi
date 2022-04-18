@@ -123,22 +123,6 @@
       "checkPassword": "test",
       "name": "test",
       "accountType": "User"
-    },
-    {
-      "id": 21,
-      "email": "test1@gmail.com",
-      "password": "test",
-      "checkPassword": "test",
-      "name": "test",
-      "accountType": "User"
-    },
-    {
-      "id": 22,
-      "email": "test1@gmail.com",
-      "password": "test",
-      "checkPassword": "test",
-      "name": "test",
-      "accountType": "User"
     }
   ]
 }

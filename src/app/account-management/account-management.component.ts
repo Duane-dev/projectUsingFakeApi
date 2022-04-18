@@ -4,6 +4,8 @@ import { ApiService } from '../shared/api.service';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { accountManagementModel } from './account_management.model';
 import { NzTableFilterFn, NzTableFilterList, NzTableSortFn, NzTableSortOrder } from 'ng-zorro-antd/table';
+import { tap } from 'rxjs';
+
 interface ColumnItem {
   name: string;
   sortOrder: NzTableSortOrder | null;
@@ -25,12 +27,10 @@ interface DataItem {
   styleUrls: ['./account-management.component.css']
 })
 export class AccountManagementComponent implements OnInit {
-  
+  userData !: any;
   userForm !: FormGroup;
   searchForm !: FormGroup;
   accountMManagementmodelObj : accountManagementModel = new accountManagementModel();
-  userData !: any;
-  userPage !: any;
   pageStart :number = 0;
   pageEnd : number = 10; 
   showAdd !: boolean;
@@ -46,11 +46,13 @@ export class AccountManagementComponent implements OnInit {
       accountType : ['']
     })
     this.getAllUsers()
+    console.log(this.getAllUsers())
   }
   clickAddUser(){
     this.userForm.reset();
     this.showAdd = true;
     this.showUpdate = false;
+    
   }
   listOfColumns: ColumnItem[] = [
     {
@@ -68,10 +70,7 @@ export class AccountManagementComponent implements OnInit {
       sortFn: (a: DataItem, b: DataItem) => a.email.localeCompare(b.email),
       sortDirections: ['ascend', 'descend', null],
       filterMultiple: true,
-      listOfFilter: [
-        { text: 'Joe', value: 'Joe' },
-        { text: 'Jim', value: 'Jim', byDefault: true }
-      ],
+      listOfFilter: [],
       filterFn: (list: string[], item: DataItem) => list.some(email => item.email.indexOf(email) !== -1)
     },
     {
@@ -81,8 +80,6 @@ export class AccountManagementComponent implements OnInit {
       sortDirections: ['ascend', 'descend', null],
       filterMultiple: true,
       listOfFilter: [
-        { text: 'Joe', value: 'Joe' },
-        { text: 'Jim', value: 'Jim', byDefault: true }
       ],
       filterFn: (list: string[], item: DataItem) => list.some(password => item.password.indexOf(password) !== -1)
     },
@@ -93,74 +90,13 @@ export class AccountManagementComponent implements OnInit {
       sortDirections: ['ascend', 'descend', null],
       filterMultiple: true,
       listOfFilter: [
-        { text: 'Joe', value: 'Joe' },
-        { text: 'Jim', value: 'Jim', byDefault: true }
+        { text: 'Admin', value: 'Admin', byDefault: true  },
+        { text: 'User', value: 'User'}
       ],
       filterFn: (list: string[], item: DataItem) => list.some(accountType => item.accountType.indexOf(accountType) !== -1)
     }
   ];
-  listOfData: DataItem[] = [
-    {
-      "id": 1,
-      "email": "Plastic@gmail.com",
-      "password": "Shirt",
-      "accountType": "Admin"
-    },
-    {
-      "id": 2,
-      "email": "Generic@gmail.com",
-      "password": "Compatible",
-      "accountType": "Admin"
-    },
-    {
-      "id": 3,
-      "email": "Borders@gmail.com",
-      "password": "Avon",
-      "accountType": "User"
-    },
-    {
-      "id": 4,
-      "email": "SCSI@gmail.com",
-      "password": "Coves",
-      "accountType": "User"
-    },
-    {
-      "id": 5,
-      "email": "Phased@gmail.com",
-      "password": "exploit",
-      "accountType": "User"
-    },
-    {
-      "id": 6,
-      "email": "ADP@gmail.com",
-      "password": "Borders",
-      "accountType": "User"
-    },
-    {
-      "id": 7,
-      "email": "compress@gmail.com",
-      "password": "state",
-      "accountType": "User"
-    },
-    {
-      "id": 8,
-      "email": "Money@gmail.com",
-      "password": "Plastic",
-      "accountType": "Admin"
-    },
-    {
-      "id": 9,
-      "email": "Forest@gmail.com",
-      "password": "Loan",
-      "accountType": "User"
-    },
-    {
-      "id": 10,
-      "email": "New@gmail.com",
-      "password": "extensible",
-      "accountType": "User"
-    },
-  ];
+  listOfData: DataItem[] = this.userData;
   postUserDetails(){
     this.accountMManagementmodelObj.email = this.userForm.value.email;
     this.accountMManagementmodelObj.password = this.userForm.value.password;
@@ -187,26 +123,8 @@ export class AccountManagementComponent implements OnInit {
     })
   }
   getAllUsers(){
-    this.api.getUser()
-    .subscribe(res=>{
-    
-        this.userData = res;
-        this.userPage = res.slice(this.pageStart,this.pageEnd);
-      })
+    return this.api.getUser().pipe(tap(res=> res.json()))
   }
-  // search(){
-  //   this.api.getUser()
-  //   .subscribe(res=>{
-  //     console.log(this.search())
-  //       for (let index = 0; index < res.length; index++) {
-          
-  //         if(res[index].name == 'test')
-  //         this.userData = res[index].name;
-  //         console.log(this.userData)
-  //         this.userPage = res.slice(this.pageStart,this.pageEnd);
-  //       }      
-  //   })
-  // }
   onPageIndexChange($event: number) {
     this.pageEnd = $event * 10;
     this.pageStart = ($event * 10) -10;
