@@ -61,67 +61,15 @@
       "accountType": "User"
     },
     {
-      "id": 13,
-      "email": "Duane@gmail.com",
-      "password": "test",
-      "checkPassword": "test",
-      "name": "Duane",
-      "accountType": "User"
-    },
-    {
-      "id": 14,
-      "email": "test@gmail.com",
-      "password": "test",
-      "checkPassword": "test",
-      "name": "test",
-      "accountType": "User"
-    },
-    {
-      "id": 15,
-      "email": "test1@gmail.com",
-      "password": "test",
-      "checkPassword": "test",
-      "name": "test",
-      "accountType": "User"
-    },
-    {
-      "id": 16,
-      "email": "test1@gmail.com",
-      "password": "test",
-      "checkPassword": "test",
-      "name": "test",
-      "accountType": "User"
-    },
-    {
-      "id": 17,
-      "email": "test1@gmail.com",
-      "password": "test",
-      "checkPassword": "test",
-      "name": "test",
-      "accountType": "User"
-    },
-    {
-      "id": 18,
-      "email": "test1@gmail.com",
-      "password": "test",
-      "checkPassword": "test",
-      "name": "test",
-      "accountType": "User"
-    },
-    {
       "id": 19,
-      "email": "test1@gmail.com",
-      "password": "test",
-      "checkPassword": "test",
-      "name": "test",
+      "email": "Forest@gmail.com",
+      "password": "Loan",
       "accountType": "User"
     },
     {
-      "id": 20,
-      "email": "test1@gmail.com",
-      "password": "test",
-      "checkPassword": "test",
-      "name": "test",
+      "id": 11,
+      "email": "New@gmail.com",
+      "password": "extensible",
       "accountType": "User"
     }
   ]

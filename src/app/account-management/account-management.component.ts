@@ -4,8 +4,7 @@ import { ApiService } from '../shared/api.service';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { accountManagementModel } from './account_management.model';
 import { NzTableFilterFn, NzTableFilterList, NzTableSortFn, NzTableSortOrder } from 'ng-zorro-antd/table';
-import { tap } from 'rxjs';
-
+import Users from '../../../db.json';
 interface ColumnItem {
   name: string;
   sortOrder: NzTableSortOrder | null;
@@ -27,7 +26,7 @@ interface DataItem {
   styleUrls: ['./account-management.component.css']
 })
 export class AccountManagementComponent implements OnInit {
-  userData !: any;
+  userData : any = Users.Users;
   userForm !: FormGroup;
   searchForm !: FormGroup;
   accountMManagementmodelObj : accountManagementModel = new accountManagementModel();
@@ -35,7 +34,7 @@ export class AccountManagementComponent implements OnInit {
   pageEnd : number = 10; 
   showAdd !: boolean;
   showUpdate !: boolean;
-  constructor(private formbuilder: FormBuilder, private api : ApiService, private notification: NzNotificationService) { }
+  constructor(private formbuilder: FormBuilder, private api : ApiService, private notification: NzNotificationService) {}
   ngOnInit(): void {
     this.searchForm = this.formbuilder.group({
       search : ['']
@@ -46,7 +45,7 @@ export class AccountManagementComponent implements OnInit {
       accountType : ['']
     })
     this.getAllUsers()
-    console.log(this.getAllUsers())
+    console.log(Users)
   }
   clickAddUser(){
     this.userForm.reset();
@@ -54,6 +53,7 @@ export class AccountManagementComponent implements OnInit {
     this.showUpdate = false;
     
   }
+  
   listOfColumns: ColumnItem[] = [
     {
       name: 'User ID',
@@ -96,7 +96,7 @@ export class AccountManagementComponent implements OnInit {
       filterFn: (list: string[], item: DataItem) => list.some(accountType => item.accountType.indexOf(accountType) !== -1)
     }
   ];
-  listOfData: DataItem[] = this.userData;
+  listOfData: DataItem[] = this.userData
   postUserDetails(){
     this.accountMManagementmodelObj.email = this.userForm.value.email;
     this.accountMManagementmodelObj.password = this.userForm.value.password;
@@ -123,8 +123,23 @@ export class AccountManagementComponent implements OnInit {
     })
   }
   getAllUsers(){
-    return this.api.getUser().pipe(tap(res=> res.json()))
+    this.api.getUser().subscribe(res=>{
+       this.userData = res;
+      })
   }
+  // search(){
+  //   this.api.getUser()
+  //   .subscribe(res=>{
+  //     console.log(this.search())
+  //       for (let index = 0; index < res.length; index++) {
+          
+  //         if(res[index].name == 'test')
+  //         this.userData = res[index].name;
+  //         console.log(this.userData)
+  //         this.userPage = res.slice(this.pageStart,this.pageEnd);
+  //       }      
+  //   })
+  // }
   onPageIndexChange($event: number) {
     this.pageEnd = $event * 10;
     this.pageStart = ($event * 10) -10;
