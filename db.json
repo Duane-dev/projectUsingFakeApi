@@ -44,7 +44,7 @@
     },
     {
       "id": 8,
-      "email": "Money@gmail.com",
+      "email": "",
       "password": "Plastic",
       "accountType": "Admin"
     },
@@ -56,18 +56,6 @@
     },
     {
       "id": 10,
-      "email": "New@gmail.com",
-      "password": "extensible",
-      "accountType": "User"
-    },
-    {
-      "id": 19,
-      "email": "Forest@gmail.com",
-      "password": "Loan",
-      "accountType": "User"
-    },
-    {
-      "id": 11,
       "email": "New@gmail.com",
       "password": "extensible",
       "accountType": "User"

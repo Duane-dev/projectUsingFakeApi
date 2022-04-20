@@ -4,6 +4,7 @@ import { ApiService } from '../shared/api.service';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { accountManagementModel } from './account_management.model';
 import { NzTableFilterFn, NzTableFilterList, NzTableSortFn, NzTableSortOrder } from 'ng-zorro-antd/table';
+import { NzModalRef , NzModalService } from 'ng-zorro-antd/modal';
 import Users from '../../../db.json';
 interface ColumnItem {
   name: string;
@@ -26,19 +27,17 @@ interface DataItem {
   styleUrls: ['./account-management.component.css']
 })
 export class AccountManagementComponent implements OnInit {
+  confirmModal?: NzModalRef;
+  isVisible = false;
   userData : any = Users.Users;
   userForm !: FormGroup;
-  searchForm !: FormGroup;
   accountMManagementmodelObj : accountManagementModel = new accountManagementModel();
   pageStart :number = 0;
   pageEnd : number = 10; 
   showAdd !: boolean;
   showUpdate !: boolean;
-  constructor(private formbuilder: FormBuilder, private api : ApiService, private notification: NzNotificationService) {}
+  constructor(private formbuilder: FormBuilder, private api : ApiService, private notification: NzNotificationService, private modal: NzModalService) {}
   ngOnInit(): void {
-    this.searchForm = this.formbuilder.group({
-      search : ['']
-    })
     this.userForm = this.formbuilder.group({
       email : [''],
       password : [''],
@@ -146,26 +145,34 @@ export class AccountManagementComponent implements OnInit {
     this.getAllUsers()
     }
   deleteUser(row : any){
-    this.api.deleteUser(row.id)
-    .subscribe(res=>{
-      this.notification.success('success','Login Successful',{
-        nzDuration: 2000,
-        nzPauseOnHover: false,
-        nzAnimate: true,
-
+    this.confirmModal = this.modal.confirm({
+      nzTitle: 'Do you Want to delete these items?',
+      nzContent: 'When clicked the OK button, this dialog will be closed after 1 second',
+      nzOnOk: () =>
+        new Promise((resolve, reject) => {
+          this.api.deleteUser(row.id)
+          .subscribe(res=>{
+           this.notification.success('success','Login Successful',{
+           nzDuration: 2000,
+           nzPauseOnHover: false,
+           nzAnimate: true,
       })
       this.getAllUsers()
     })
+          setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
+        }).catch(() => console.log('Oops errors!'))
+    });
+    
   }
-  onEdit(row : any){
-    this.showAdd = false;
-    this.showUpdate = true;
+  showModal(row : any){
+    this.isVisible = true;
     this.accountMManagementmodelObj.id = row.id;
     this.userForm.controls['email'].setValue(row.email),
     this.userForm.controls['password'].setValue(row.password),
     this.userForm.controls['accountType'].setValue(row.accountType)
   }
-  updateUserDetails(){
+
+  handleOk(): void {
     this.accountMManagementmodelObj.email = this.userForm.value.email;
     this.accountMManagementmodelObj.password = this.userForm.value.password;
     this.accountMManagementmodelObj.accountType = this.userForm.value.accountType;
@@ -189,7 +196,18 @@ export class AccountManagementComponent implements OnInit {
 
       })
     })
+    this.isVisible = false;
   }
+
+  handleCancel(): void {
+
+    this.isVisible = false;
+  }
+  updateConfirmValidator(): void {
+    /** wait for refresh value */
+    Promise.resolve().then(() => this.userForm.controls['checkPassword'].updateValueAndValidity());
+  }
+
 
 
 

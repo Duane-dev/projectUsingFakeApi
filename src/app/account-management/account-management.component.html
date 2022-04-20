@@ -27,7 +27,7 @@
             <td>{{row.accountType}}</td>     
                     
             <td>
-                <button nz-button nzType="primary" (click)= "onEdit(row)">Edit</button>
+                <button nz-button nzType="primary" (click)= "showModal(row)">Edit</button>
                 <button nz-button nzDanger (click)= "deleteUser(row)">Delete</button>
             </td>
 
@@ -39,35 +39,60 @@
     
 </nz-table>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form [formGroup]="userForm" >
-                <div class="mb-3">
-                  <label for="exampleInputName" class="form-label">User Email</label>
-                  <input type="email" formControlName="email" class="form-control" id="exampleInputname" required>
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputDescription" class="form-label">User Password</label>
-                  <input type="text" formControlName="password" class="form-control" id="exampleInputDescription" required>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputDueDate" class="form-label">Account Type</label>
-                    <input type="text" formControlName="accountType" class="form-control" id="exampleInputDueDate" required>
-                  </div>
-              </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" *ngIf="showAdd" (click)="postUserDetails()" class="btn btn-primary">Add</button>
-          <button type="button" *ngIf="showUpdate" (click)="updateUserDetails()" class="btn btn-primary">Update</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- <button nz-button [nzType]="'primary'" (click)="showModal()"><span>Show Modal</span></button> -->
+    <nz-modal [(nzVisible)]="isVisible">
+      <ng-container *nzModalContent>
+        <div class="form-div">
 
+
+          <form nz-form [formGroup]="userForm" (ngSubmit)="handleOk()">
+              <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+                  <input nz-input formControlName="email" id="email" />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
+                  <input
+                    nz-input
+                    type="password"
+                    id="password"
+                    formControlName="password"
+                    (ngModelChange)="updateConfirmValidator()"
+                  />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label
+                  [nzSm]="6"
+                  [nzXs]="24"
+                  nzFor="accountType"
+                  nzRequired
+                  nzTooltipTitle="Set Account Access"
+                >
+                  <span>Account</span>
+                </nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your Account Type!">
+                  <input nz-input id="accountType" formControlName="accountType" />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item nz-row class="register-area">
+                <nz-form-control [nzSpan]="14" [nzOffset]="6">
+                  <label nz-checkbox formControlName="agree">
+                    <span>
+                      I have read the
+                      <a>agreement</a>
+                    </span>
+                  </label>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item nz-row class="register-area">
+                <nz-form-control [nzSpan]="14" [nzOffset]="6">
+                  <button nz-button nzType="primary">Update</button>
+                </nz-form-control>
+              </nz-form-item>
+            </form></div>
+      </ng-container>
+    </nz-modal>
