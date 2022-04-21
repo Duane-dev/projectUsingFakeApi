@@ -1,0 +1,42 @@
+<div class="background">
+    <div nz-row>
+        <div nz-col nzSpan="8"></div>
+            <div nz-col nzSpan="8">
+                <h2>President</h2>
+                <nz-radio-group [(ngModel)]="President">
+                    <label nz-radio nzValue="pA">President A</label>
+                    <label nz-radio nzValue="pB">President B</label>
+                    <label nz-radio nzValue="pC">President C</label>
+                </nz-radio-group>
+            </div>
+        <div nz-col nzSpan="8"></div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="8"></div>
+            <div nz-col nzSpan="8">
+                
+                <h2>Vice President</h2>
+                <nz-radio-group [(ngModel)]="Vpresident">
+                    <label nz-radio nzValue="vpA">Vice President A</label>
+                    <label nz-radio nzValue="vpB">Vice President B</label>
+                    <label nz-radio nzValue="vpC">Vice President C</label>
+                </nz-radio-group>
+            </div>
+        <div nz-col nzSpan="8"></div>
+    </div>
+
+    <div nz-row>
+        <div nz-col nzSpan="8"></div>
+            <div nz-col nzSpan="8">
+                <h2>Secretary</h2>
+                <nz-radio-group [(ngModel)]="Secretary">
+                    <label nz-radio nzValue="sA">Secretary A</label>
+                    <label nz-radio nzValue="sB">Secretary B</label>
+                    <label nz-radio nzValue="sC">Secretary C</label>
+                </nz-radio-group>
+            </div>
+        <div nz-col nzSpan="8"></div>
+    </div>
+    <button nz-button (click)= "tallyVote()">submit</button>
+</div>

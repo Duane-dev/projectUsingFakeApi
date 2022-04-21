@@ -83,6 +83,7 @@ import { NzResizableModule } from 'ng-zorro-antd/resizable';
 import { NzPipesModule } from 'ng-zorro-antd/pipes';
 import { RegisterComponent } from './register/register.component';
 import { AccountManagementComponent } from './account-management/account-management.component';
+import { VoteComponent } from './vote/vote.component';
 
 
 registerLocaleData(en);
@@ -93,7 +94,8 @@ registerLocaleData(en);
     LoginComponent,
     RegisterComponent,
     WelcomeComponent,
-    AccountManagementComponent
+    AccountManagementComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule,

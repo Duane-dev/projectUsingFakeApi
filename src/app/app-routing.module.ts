@@ -4,6 +4,7 @@ import { AccountManagementComponent } from './account-management/account-managem
 import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { RegisterComponent } from './register/register.component';
+import { VoteComponent } from './vote/vote.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'account', component: AccountManagementComponent },
+  { path: 'Vote', component: VoteComponent },
   
 ];
 

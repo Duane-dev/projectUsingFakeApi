@@ -4,7 +4,8 @@
       "id": 1,
       "email": "Plastic@gmail.com",
       "password": "Shirt",
-      "accountType": "Admin"
+      "accountType": "Admin",
+      "voteStat": "NO"
     },
     {
       "id": 2,
@@ -16,49 +17,71 @@
       "id": 3,
       "email": "Borders@gmail.com",
       "password": "Avon",
-      "accountType": "User"
+      "accountType": "User",
+      "voteStat": "NO"
     },
     {
       "id": 4,
       "email": "SCSI@gmail.com",
       "password": "Coves",
-      "accountType": "User"
+      "accountType": "User",
+      "voteStat": "NO"
     },
     {
       "id": 5,
       "email": "Phased@gmail.com",
       "password": "exploit",
-      "accountType": "User"
+      "accountType": "User",
+      "voteStat": "NO"
     },
     {
       "id": 6,
       "email": "ADP@gmail.com",
       "password": "Borders",
-      "accountType": "User"
+      "accountType": "User",
+      "voteStat": "NO"
     },
     {
       "id": 7,
       "email": "compress@gmail.com",
       "password": "state",
-      "accountType": "User"
+      "accountType": "User",
+      "voteStat": "NO"
     },
     {
       "id": 8,
       "email": "",
       "password": "Plastic",
-      "accountType": "Admin"
+      "accountType": "Admin",
+      "voteStat": "NO"
     },
     {
       "id": 9,
       "email": "Forest@gmail.com",
       "password": "Loan",
-      "accountType": "User"
+      "accountType": "User",
+      "voteStat": "NO"
     },
     {
       "id": 10,
       "email": "New@gmail.com",
       "password": "extensible",
-      "accountType": "User"
+      "accountType": "User",
+      "voteStat": "NO"
+    }
+  ],
+  "Votes": [
+    {
+      "id": 0,
+      "President": "pA",
+      "Vpresident": "vPA",
+      "Secretary": "sA"
+    },
+    {
+      "id": 1,
+      "President": "pA",
+      "Vpresident": "vpC",
+      "Secretary": "sB"
     }
   ]
 }

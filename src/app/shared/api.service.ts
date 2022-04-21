@@ -15,6 +15,13 @@ export class ApiService {
       return res;
     }))
   }
+  
+  postVote(data : any){
+    return this.http.post<any>("http://localhost:3000/Votes", data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
   getUser(){
     return this.http.get<any>("http://localhost:3000/Users")
     .pipe(map((res:any)=>{

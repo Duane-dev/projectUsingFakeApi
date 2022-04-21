@@ -40,7 +40,7 @@
 </nz-table>
 
 <!-- <button nz-button [nzType]="'primary'" (click)="showModal()"><span>Show Modal</span></button> -->
-    <nz-modal [(nzVisible)]="isVisible">
+    <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
       <ng-container *nzModalContent>
         <div class="form-div">
 
