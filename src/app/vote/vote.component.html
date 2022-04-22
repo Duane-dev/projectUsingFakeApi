@@ -1,4 +1,4 @@
-<div class="background">
+<div class="background"  *ngIf="vstat == false; else elseBlock">
     <div nz-row>
         <div nz-col nzSpan="8"></div>
             <div nz-col nzSpan="8">
@@ -40,3 +40,12 @@
     </div>
     <button nz-button (click)= "tallyVote()">submit</button>
 </div>
+
+<ng-template #elseBlock>
+<nz-result
+      nzStatus="success"
+      nzTitle="You have Voted Successfully"
+      nzSubTitle="Please Wait While We Tally The Scores."
+    >
+</nz-result>
+</ng-template>

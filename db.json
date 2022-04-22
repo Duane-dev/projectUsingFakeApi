@@ -5,69 +5,63 @@
       "email": "Plastic@gmail.com",
       "password": "Shirt",
       "accountType": "Admin",
-      "voteStat": "NO"
+      "voteStat": "false"
     },
     {
       "id": 2,
       "email": "Generic@gmail.com",
       "password": "Compatible",
-      "accountType": "Admin"
+      "accountType": "Admin",
+      "voteStat": "false"
     },
     {
       "id": 3,
       "email": "Borders@gmail.com",
       "password": "Avon",
       "accountType": "User",
-      "voteStat": "NO"
+      "voteStat": "false"
     },
     {
       "id": 4,
       "email": "SCSI@gmail.com",
       "password": "Coves",
       "accountType": "User",
-      "voteStat": "NO"
+      "voteStat": "false"
     },
     {
       "id": 5,
       "email": "Phased@gmail.com",
       "password": "exploit",
       "accountType": "User",
-      "voteStat": "NO"
+      "voteStat": "false"
     },
     {
       "id": 6,
       "email": "ADP@gmail.com",
       "password": "Borders",
       "accountType": "User",
-      "voteStat": "NO"
+      "voteStat": "false"
     },
     {
       "id": 7,
       "email": "compress@gmail.com",
       "password": "state",
       "accountType": "User",
-      "voteStat": "NO"
+      "voteStat": "false"
     },
     {
-      "id": 8,
-      "email": "",
-      "password": "Plastic",
-      "accountType": "Admin",
-      "voteStat": "NO"
-    },
-    {
-      "id": 9,
       "email": "Forest@gmail.com",
       "password": "Loan",
       "accountType": "User",
-      "voteStat": "NO"
+      "voteStat": "true",
+      "id": 9
     },
     {
       "id": 10,
       "email": "New@gmail.com",
       "password": "extensible",
       "accountType": "User",
-      "voteStat": "NO"
+      "voteStat": "false"
     }
   ],
   "Votes": [
@@ -79,6 +73,114 @@
     },
     {
       "id": 1,
+      "President": "pA",
+      "Vpresident": "vpC",
+      "Secretary": "sB"
+    },
+    {
+      "id": 2,
+      "President": "pA",
+      "Vpresident": "vpA",
+      "Secretary": "sA"
+    },
+    {
+      "id": 3,
+      "President": "pA",
+      "Vpresident": "vpB",
+      "Secretary": "sC"
+    },
+    {
+      "id": 4,
+      "President": "pA",
+      "Vpresident": "vpB",
+      "Secretary": "sC"
+    },
+    {
+      "id": 5,
+      "President": "pA",
+      "Vpresident": "vpB",
+      "Secretary": "sC"
+    },
+    {
+      "id": 6,
+      "President": "pA",
+      "Vpresident": "vpB",
+      "Secretary": "sC"
+    },
+    {
+      "id": 7,
+      "President": "pC",
+      "Vpresident": "vpB",
+      "Secretary": "sA"
+    },
+    {
+      "id": 8,
+      "President": "pA",
+      "Vpresident": "vpB",
+      "Secretary": "sC"
+    },
+    {
+      "id": 9,
+      "President": "pA",
+      "Vpresident": "vpB",
+      "Secretary": "sC"
+    },
+    {
+      "id": 10,
+      "President": "pC",
+      "Vpresident": "vpB",
+      "Secretary": "sB"
+    },
+    {
+      "id": 11,
+      "President": "pA",
+      "Vpresident": "vpC",
+      "Secretary": "sA"
+    },
+    {
+      "id": 12,
+      "President": "pB",
+      "Vpresident": "vpB",
+      "Secretary": "sB"
+    },
+    {
+      "id": 13,
+      "President": "pA",
+      "Vpresident": "vpC",
+      "Secretary": "sB"
+    },
+    {
+      "id": 14,
+      "President": "pB",
+      "Vpresident": "vpB",
+      "Secretary": "sC"
+    },
+    {
+      "id": 15,
+      "President": "pC",
+      "Vpresident": "vpA",
+      "Secretary": "sB"
+    },
+    {
+      "id": 16,
+      "President": "pC",
+      "Vpresident": "vpB",
+      "Secretary": "sA"
+    },
+    {
+      "id": 17,
+      "President": "pA",
+      "Vpresident": "vpC",
+      "Secretary": "sB"
+    },
+    {
+      "id": 18,
+      "President": "pB",
+      "Vpresident": "vpC",
+      "Secretary": "sC"
+    },
+    {
+      "id": 19,
       "President": "pA",
       "Vpresident": "vpC",
       "Secretary": "sB"

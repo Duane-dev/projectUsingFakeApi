@@ -2,6 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { ApiService } from '../shared/api.service';
 import { VoteModel } from './vote.model';
+import { StatModel } from './vote.model';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-vote',
@@ -13,10 +21,17 @@ export class VoteComponent implements OnInit {
   Vpresident = '';
   Secretary = '';
   voteobj : VoteModel = new VoteModel();
+  statObj : StatModel = new StatModel();
+  vstat !: boolean; 
+  uId !: any;
+  uInfo !: any;
 
-  constructor(private api : ApiService, private notification: NzNotificationService) { }
+  constructor(private api : ApiService, private notification: NzNotificationService, private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.vstat = this.localStorageItem();
+    // console.log(localStorage.getItem('sessionUserId'))
+    
   }
   tallyVote(){
     console.log("test")
@@ -30,10 +45,44 @@ export class VoteComponent implements OnInit {
         nzDuration: 2000,
         nzPauseOnHover: false,
         nzAnimate: true,
-
+       })
+      this.uId = localStorage.getItem('sessionUserId');
+      this.statObj.id = localStorage.getItem('sessionUserId');
+      this.http.get<any>("http://localhost:3000/Users/"+this.uId).subscribe(data=>{
+        this.statObj.email = data.email;
+        this.statObj.password = data.password;
+        this.statObj.accountType = data.accountType;
+        this.statObj.voteStat = "true";
+        localStorage.setItem('sessionUserVstat', "true");
+        this.api.updateUser(this.statObj, this.statObj.id)
+        .subscribe(res=>{
+        this.notification.success('success','Login Successful',{
+          nzDuration: 5000,
+          nzPauseOnHover: false,
+          nzAnimate: true,
+  
+        })
       })
-
     })
+      },
+      err=>{
+        this.notification.success('success','Login Successful',{
+          nzDuration: 2000,
+          nzPauseOnHover: false,
+          nzAnimate: true,
+  
+        })
+      })
   }
+  public localStorageItem(): boolean {
+    if (localStorage.getItem("sessionUserVstat") == "true"){
+      return true
+    } else {
+      return false;
+    };
+  } 
+  // public localStorageItemId(): string {
+  //  this.uId = localStorage.getItem("sessionUserId")
+  // } 
 
 }

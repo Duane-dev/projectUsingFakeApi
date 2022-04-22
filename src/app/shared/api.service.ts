@@ -28,6 +28,12 @@ export class ApiService {
       return res;
     }))
   }
+  // getUserVote(id: number){
+  //   return this.http.get<any>("http://localhost:3000/Users/"+id)
+  //   .pipe(map((res:any)=>{
+  //     return res;
+  //   }))
+  // }
   updateUser(data :any,id: number){
     return this.http.put<any>("http://localhost:3000/Users/"+id,data)
     .pipe(map((res:any)=>{

@@ -50,6 +50,8 @@ export class LoginComponent implements OnInit {
         setTimeout(()=>{
         this.validateForm.reset();
         localStorage.setItem('sessionUser', user.accountType);
+        localStorage.setItem('sessionUserId', user.id);
+        localStorage.setItem('sessionUserVstat', user.voteStat);
         this.router.navigate(['welcome'])
         .then(()=>{
           window.location.reload();
@@ -65,6 +67,8 @@ export class LoginComponent implements OnInit {
         setTimeout(()=>{
         this.validateForm.reset();
         localStorage.setItem('sessionUser', user.accountType);
+        localStorage.setItem('sessionUserId', user.id);
+        localStorage.setItem('sessionUserVstat', user.voteStat);
         this.router.navigate(['welcome'])
         .then(()=>{
           window.location.reload();
