@@ -1,9 +1,23 @@
-<nz-carousel [nzEffect]="effect">
-    <div nz-carousel-content *ngFor="let index of carousel">
-      <div>
-      </div>
-    </div>
-  </nz-carousel>
-
-  <!-- <img src='src\app\pages\welcome\img\a.jpg'> -->
- 
+<nz-progress [nzPercent]="presAchart()" nzType="circle" [nzFormat]="presA"></nz-progress>
+<nz-progress [nzPercent]="presBchart()" nzType="circle" [nzFormat]="presB"></nz-progress>
+<nz-progress [nzPercent]="presCchart()" nzType="circle" [nzFormat]="presC"></nz-progress>
+<br>
+<label for="">A</label>
+<label for="">B</label>
+<label for="">C</label>
+<br>
+<nz-progress [nzPercent]="vpresAchart()" nzType="circle" [nzFormat]="vPresA"></nz-progress>
+<nz-progress [nzPercent]="vpresBchart()" nzType="circle" [nzFormat]="vPresB"></nz-progress>
+<nz-progress [nzPercent]="vpresCchart()" nzType="circle" [nzFormat]="vPresC"></nz-progress>
+<br>
+<label for="">A</label>
+<label for="">B</label>
+<label for="">C</label>
+<br>
+<nz-progress [nzPercent]="secAchart()" nzType="circle" [nzFormat]="SecA"></nz-progress>
+<nz-progress [nzPercent]="secBchart()" nzType="circle" [nzFormat]="SecB"></nz-progress>
+<nz-progress [nzPercent]="secCchart()" nzType="circle" [nzFormat]="SecC"></nz-progress>
+<br>
+<label for="">A</label>
+<label for="">B</label>
+<label for="">C</label>

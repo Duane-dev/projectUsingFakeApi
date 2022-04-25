@@ -96,31 +96,6 @@ export class AccountManagementComponent implements OnInit {
     }
   ];
   listOfData: DataItem[] = this.userData
-  postUserDetails(){
-    this.accountMManagementmodelObj.email = this.userForm.value.email;
-    this.accountMManagementmodelObj.password = this.userForm.value.password;
-    this.accountMManagementmodelObj.accountType = this.userForm.value.accountType;
-
-    this.api.postUser(this.accountMManagementmodelObj)
-    .subscribe(res=>{
-      this.notification.success('success','Login Successful',{
-        nzDuration: 2000,
-        nzPauseOnHover: false,
-        nzAnimate: true,
-
-      })
-      this.userForm.reset();
-      this.getAllUsers()
-    },
-    err=>{
-      this.notification.success('success','Login Successful',{
-        nzDuration: 2000,
-        nzPauseOnHover: false,
-        nzAnimate: true,
-
-      })
-    })
-  }
   getAllUsers(){
     this.api.getUser().subscribe(res=>{
        this.userData = res;
