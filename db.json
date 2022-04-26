@@ -8,11 +8,11 @@
       "voteStat": "false"
     },
     {
-      "id": 2,
       "email": "Generic@gmail.com",
       "password": "Compatible",
       "accountType": "Admin",
-      "voteStat": "false"
+      "voteStat": "true",
+      "id": 2
     },
     {
       "id": 3,
@@ -63,6 +63,8 @@
       "accountType": "User",
       "voteStat": "false"
     }
+  ],
+  "Candidates": [
   ],
   "Votes": [
     {
@@ -184,6 +186,12 @@
       "President": "pA",
       "Vpresident": "vpC",
       "Secretary": "sB"
+    },
+    {
+      "id": 20,
+      "President": "pA",
+      "Vpresident": "vpB",
+      "Secretary": "sC"
     }
   ]
 }

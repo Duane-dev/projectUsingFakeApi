@@ -1,0 +1,90 @@
+<nz-table e #filterTable [nzData]="listOfData" nzTableLayout="fixed">
+    <thead>
+        <tr>
+            <th
+            *ngFor="let column of listOfColumns"
+            [nzSortOrder]="column.sortOrder"
+            [nzSortFn]="column.sortFn"
+            [nzSortDirections]="column.sortDirections"
+            [nzFilterMultiple]="column.filterMultiple"
+            [nzFilters]="column.listOfFilter"
+            [nzFilterFn]="column.filterFn"
+          >
+            {{ column.name }}
+          </th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr *ngFor = "let row of filterTable.data">
+            <td>{{row.id}}</td>
+            <td>{{row.position}}</td>
+            <td>{{row.posCode}}</td> 
+                    
+            <td>
+                <button nz-button nzType="primary" >Edit</button>
+                <button nz-button nzDanger >Delete</button>
+            </td>
+
+        </tr>
+
+    </tbody>
+    
+</nz-table>
+
+    <!-- <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+      <ng-container *nzModalContent>
+        <div class="form-div">
+
+
+          <form nz-form [formGroup]="userForm" (ngSubmit)="handleOk()">
+              <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+                  <input nz-input formControlName="email" id="email" />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
+                  <input
+                    nz-input
+                    type="password"
+                    id="password"
+                    formControlName="password"
+                    (ngModelChange)="updateConfirmValidator()"
+                  />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-label
+                  [nzSm]="6"
+                  [nzXs]="24"
+                  nzFor="accountType"
+                  nzRequired
+                  nzTooltipTitle="Set Account Access"
+                >
+                  <span>Account</span>
+                </nz-form-label>
+                <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your Account Type!">
+                  <input nz-input id="accountType" formControlName="accountType" />
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item nz-row class="register-area">
+                <nz-form-control [nzSpan]="14" [nzOffset]="6">
+                  <label nz-checkbox formControlName="agree">
+                    <span>
+                      I have read the
+                      <a>agreement</a>
+                    </span>
+                  </label>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item nz-row class="register-area">
+                <nz-form-control [nzSpan]="14" [nzOffset]="6">
+                  <button nz-button nzType="primary">Update</button>
+                </nz-form-control>
+              </nz-form-item>
+            </form></div>
+      </ng-container>
+    </nz-modal> -->

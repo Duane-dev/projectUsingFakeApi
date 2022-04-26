@@ -34,8 +34,6 @@ export class AccountManagementComponent implements OnInit {
   accountMManagementmodelObj : accountManagementModel = new accountManagementModel();
   pageStart :number = 0;
   pageEnd : number = 10; 
-  showAdd !: boolean;
-  showUpdate !: boolean;
   constructor(private formbuilder: FormBuilder, private api : ApiService, private notification: NzNotificationService, private modal: NzModalService) {}
   ngOnInit(): void {
     this.userForm = this.formbuilder.group({
@@ -44,13 +42,6 @@ export class AccountManagementComponent implements OnInit {
       accountType : ['']
     })
     this.getAllUsers()
-    console.log(Users)
-  }
-  clickAddUser(){
-    this.userForm.reset();
-    this.showAdd = true;
-    this.showUpdate = false;
-    
   }
   
   listOfColumns: ColumnItem[] = [
@@ -101,19 +92,6 @@ export class AccountManagementComponent implements OnInit {
        this.userData = res;
       })
   }
-  // search(){
-  //   this.api.getUser()
-  //   .subscribe(res=>{
-  //     console.log(this.search())
-  //       for (let index = 0; index < res.length; index++) {
-          
-  //         if(res[index].name == 'test')
-  //         this.userData = res[index].name;
-  //         console.log(this.userData)
-  //         this.userPage = res.slice(this.pageStart,this.pageEnd);
-  //       }      
-  //   })
-  // }
   onPageIndexChange($event: number) {
     this.pageEnd = $event * 10;
     this.pageStart = ($event * 10) -10;

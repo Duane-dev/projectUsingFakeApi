@@ -13,13 +13,8 @@
         margin-bottom: 0;
         user-select: none;
       }
-      nz-progress {
-        margin-right: 8px;
-        margin-bottom: 8px;
+      div.pos{
+        margin-bottom: 30px;
         margin-top: 20px;
-        display: inline-block;
-      }
-      label{
-        margin-left: 45px;
-        margin-right: 50px;
+
       }

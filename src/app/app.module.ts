@@ -84,6 +84,7 @@ import { NzPipesModule } from 'ng-zorro-antd/pipes';
 import { RegisterComponent } from './register/register.component';
 import { AccountManagementComponent } from './account-management/account-management.component';
 import { VoteComponent } from './vote/vote.component';
+import { CandidatesComponent } from './candidates/candidates.component';
 
 
 registerLocaleData(en);
@@ -95,7 +96,8 @@ registerLocaleData(en);
     RegisterComponent,
     WelcomeComponent,
     AccountManagementComponent,
-    VoteComponent
+    VoteComponent,
+    CandidatesComponent
   ],
   imports: [
     BrowserModule,

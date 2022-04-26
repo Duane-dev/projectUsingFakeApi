@@ -1,23 +1,72 @@
-<nz-progress [nzPercent]="presAchart()" nzType="circle" [nzFormat]="presA"></nz-progress>
-<nz-progress [nzPercent]="presBchart()" nzType="circle" [nzFormat]="presB"></nz-progress>
-<nz-progress [nzPercent]="presCchart()" nzType="circle" [nzFormat]="presC"></nz-progress>
-<br>
-<label for="">A</label>
-<label for="">B</label>
-<label for="">C</label>
-<br>
-<nz-progress [nzPercent]="vpresAchart()" nzType="circle" [nzFormat]="vPresA"></nz-progress>
-<nz-progress [nzPercent]="vpresBchart()" nzType="circle" [nzFormat]="vPresB"></nz-progress>
-<nz-progress [nzPercent]="vpresCchart()" nzType="circle" [nzFormat]="vPresC"></nz-progress>
-<br>
-<label for="">A</label>
-<label for="">B</label>
-<label for="">C</label>
-<br>
-<nz-progress [nzPercent]="secAchart()" nzType="circle" [nzFormat]="SecA"></nz-progress>
-<nz-progress [nzPercent]="secBchart()" nzType="circle" [nzFormat]="SecB"></nz-progress>
-<nz-progress [nzPercent]="secCchart()" nzType="circle" [nzFormat]="SecC"></nz-progress>
-<br>
-<label for="">A</label>
-<label for="">B</label>
-<label for="">C</label>
+ 
+ 
+ <div nz-row [nzGutter]="16">
+    <div nz-col nzSpan="12" nzOffset="8" class="pos"><h2>President Total Votes: {{totalVotes}}</h2></div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <nz-progress [nzPercent]="presAchart()" nzType="circle" [nzFormat]="presA"></nz-progress>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <nz-progress [nzPercent]="presBchart()" nzType="circle" [nzFormat]="presB"></nz-progress>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <nz-progress [nzPercent]="presCchart()" nzType="circle" [nzFormat]="presC"></nz-progress>
+    </div>
+  </div>
+  <div nz-row [nzGutter]="16" class="labels">
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <label for="">President A</label>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <label for="">President B</label>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <label for="">President C</label>
+    </div>
+  </div>
+  <div nz-row [nzGutter]="16">
+    <div nz-col nzSpan="12" nzOffset="8" class="pos"><h2>Vice-President Total Votes: {{totalVotes}}</h2></div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <nz-progress [nzPercent]="vpresAchart()" nzType="circle" [nzFormat]="vPresA"></nz-progress>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <nz-progress [nzPercent]="vpresBchart()" nzType="circle" [nzFormat]="vPresB"></nz-progress>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <nz-progress [nzPercent]="vpresCchart()" nzType="circle" [nzFormat]="vPresC"></nz-progress>
+    </div>
+  </div>
+  <div nz-row [nzGutter]="16" class="labels">
+  
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <label for="">Vice-President A</label>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <label for="">Vice-President B</label>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <label for="">Vice-President C</label>
+    </div>
+  </div>
+  <div nz-row [nzGutter]="16">
+    <div nz-col nzSpan="12" nzOffset="8" class="pos"><h2>Secretary Total Votes: {{totalVotes}}</h2></div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <nz-progress [nzPercent]="secAchart()" nzType="circle" [nzFormat]="SecA"></nz-progress>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <nz-progress [nzPercent]="secBchart()" nzType="circle" [nzFormat]="SecB"></nz-progress>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <nz-progress [nzPercent]="secCchart()" nzType="circle" [nzFormat]="SecC"></nz-progress>
+    </div>
+  </div>
+  <div nz-row [nzGutter]="16" class="labels">
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <label for="">Secretary A</label>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <label for="">Secretary B</label>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+        <label for="">Secretary C</label>
+    </div>
+  </div>

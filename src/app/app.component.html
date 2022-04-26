@@ -9,21 +9,24 @@
      <div class="sidebar-logo">
        <a href="https://ng.ant.design/" target="_blank">
          <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-         <h1>Sample Project</h1>
+         <h1>Sample Voting System</h1>
        </a>
      </div>
      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
          <ul>
            <li nz-menu-item nzMatchRouter>
-             <a routerLink="/welcome">Welcome</a>
+             <a routerLink="/welcome">Vote Tally</a>
            </li>
            <li nz-menu-item nzMatchRouter>
-             <a routerLink="/account">Account</a>
+             <a routerLink="/account">Accounts</a>
            </li>
            <li nz-menu-item nzMatchRouter>
              <a routerLink="/Vote">Vote</a>
            </li>
+           <li nz-menu-item nzMatchRouter>
+            <a routerLink="/Candidates">Candidates</a>
+          </li>
          </ul>
        </li>
        <li nz-submenu nzOpen nzTitle="Log Out" nzIcon="logout">
