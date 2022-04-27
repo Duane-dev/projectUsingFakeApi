@@ -16,6 +16,7 @@
           >
             {{ column.name }}
           </th>
+          <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -24,7 +25,7 @@
             <td>{{row.id}}</td>
             <td>{{row.email}}</td>
             <td>{{row.password}}</td>
-            <td>{{row.accountType}}</td>     
+            <td>{{row.accountType}}</td>  
                     
             <td>
                 <button nz-button nzType="primary" (click)= "showModal(row)">Edit</button>
@@ -40,7 +41,7 @@
 </nz-table>
 
 <!-- <button nz-button [nzType]="'primary'" (click)="showModal()"><span>Show Modal</span></button> -->
-    <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" (nzOnOk)="okbutton()">
       <ng-container *nzModalContent>
         <div class="form-div">
 
@@ -60,7 +61,6 @@
                     type="password"
                     id="password"
                     formControlName="password"
-                    (ngModelChange)="updateConfirmValidator()"
                   />
                 </nz-form-control>
               </nz-form-item>
@@ -78,16 +78,7 @@
                   <input nz-input id="accountType" formControlName="accountType" />
                 </nz-form-control>
               </nz-form-item>
-              <nz-form-item nz-row class="register-area">
-                <nz-form-control [nzSpan]="14" [nzOffset]="6">
-                  <label nz-checkbox formControlName="agree">
-                    <span>
-                      I have read the
-                      <a>agreement</a>
-                    </span>
-                  </label>
-                </nz-form-control>
-              </nz-form-item>
+
               <nz-form-item nz-row class="register-area">
                 <nz-form-control [nzSpan]="14" [nzOffset]="6">
                   <button nz-button nzType="primary">Update</button>

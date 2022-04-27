@@ -52,8 +52,8 @@
     {
       "email": "Forest@gmail.com",
       "password": "Loan",
-      "accountType": "User",
-      "voteStat": "true",
+      "accountType": "Admin",
+      "voteStat": "false",
       "id": 9
     },
     {
@@ -65,6 +65,18 @@
     }
   ],
   "Candidates": [
+    {
+      "id": 0,
+      "name": "President A",
+      "position": "President",
+      "posCode": "pA"
+    },
+    {
+      "id": 1,
+      "name": "President B",
+      "position": "President ",
+      "posCode": "pB"
+    }
   ],
   "Votes": [
     {

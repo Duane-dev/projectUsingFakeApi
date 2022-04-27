@@ -41,7 +41,6 @@ export class AccountManagementComponent implements OnInit {
       password : [''],
       accountType : ['']
     })
-    this.getAllUsers()
   }
   
   listOfColumns: ColumnItem[] = [
@@ -87,16 +86,6 @@ export class AccountManagementComponent implements OnInit {
     }
   ];
   listOfData: DataItem[] = this.userData
-  getAllUsers(){
-    this.api.getUser().subscribe(res=>{
-       this.userData = res;
-      })
-  }
-  onPageIndexChange($event: number) {
-    this.pageEnd = $event * 10;
-    this.pageStart = ($event * 10) -10;
-    this.getAllUsers()
-    }
   deleteUser(row : any){
     this.confirmModal = this.modal.confirm({
       nzTitle: 'Do you Want to delete these items?',
@@ -105,12 +94,12 @@ export class AccountManagementComponent implements OnInit {
         new Promise((resolve, reject) => {
           this.api.deleteUser(row.id)
           .subscribe(res=>{
-           this.notification.success('success','Login Successful',{
+           this.notification.warning('Deleted','User Deleted',{
            nzDuration: 2000,
            nzPauseOnHover: false,
            nzAnimate: true,
       })
-      this.getAllUsers()
+
     })
           setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
         }).catch(() => console.log('Oops errors!'))
@@ -132,17 +121,17 @@ export class AccountManagementComponent implements OnInit {
 
     this.api.updateUser(this.accountMManagementmodelObj, this.accountMManagementmodelObj.id)
     .subscribe(res=>{
-      this.notification.success('success','Login Successful',{
+      this.notification.success('Updated','Update Successful',{
         nzDuration: 2000,
         nzPauseOnHover: false,
         nzAnimate: true,
 
       })
       this.userForm.reset();
-      this.getAllUsers()
+
     },
     err=>{
-      this.notification.success('success','Login Successful',{
+      this.notification.error('Failed','Update Failed',{
         nzDuration: 2000,
         nzPauseOnHover: false,
         nzAnimate: true,
@@ -151,14 +140,12 @@ export class AccountManagementComponent implements OnInit {
     })
     this.isVisible = false;
   }
-
+  okbutton():void{
+    this.isVisible = false;
+  }
   handleCancel(): void {
 
     this.isVisible = false;
-  }
-  updateConfirmValidator(): void {
-    /** wait for refresh value */
-    Promise.resolve().then(() => this.userForm.controls['checkPassword'].updateValueAndValidity());
   }
 
 

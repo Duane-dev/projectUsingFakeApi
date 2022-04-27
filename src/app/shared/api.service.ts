@@ -40,6 +40,30 @@ export class ApiService {
       return res;
     }))
   }
+  postCandidate(data : any){
+    return this.http.post<any>("http://localhost:3000/Candidates", data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+  getCandidate(){
+    return this.http.get<any>("http://localhost:3000/Candidates")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+  updateCandidate(data :any,id: number){
+    return this.http.put<any>("http://localhost:3000/Candidates/"+id,data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+  deleteCandidate(id: number){
+    return this.http.delete<any>("http://localhost:3000/Candidates/"+id)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
 
 
 }

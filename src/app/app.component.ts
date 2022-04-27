@@ -8,11 +8,14 @@ import { Router } from '@angular/router';
 })
 export class AppComponent  implements OnInit {
   checkStatus!: boolean;
+  checkUser!: boolean;
   isCollapsed = false;
   constructor(private router: Router) { }
 
   ngOnInit() {
     this.checkStatus = this.localStorageItem();
+    this.checkUser = this.localStorageUser();
+    console.log(this.checkUser)
     if(this.checkStatus == false){
       this.router.navigate(['login'])
     }
@@ -20,6 +23,13 @@ export class AppComponent  implements OnInit {
   
   public localStorageItem(): boolean {
     if (localStorage.getItem("sessionUser") == "Admin" || localStorage.getItem("sessionUser") == "User") {
+      return true
+    } else {
+      return false;
+    };
+  }
+  public localStorageUser(): boolean {
+    if (localStorage.getItem("sessionUser") == "Admin") {
       return true
     } else {
       return false;

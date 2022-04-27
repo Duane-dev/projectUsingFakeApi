@@ -1,46 +1,55 @@
 <div class="background"  *ngIf="vstat == false; else elseBlock">
     <div nz-row>
-        <div nz-col nzSpan="8"></div>
-            <div nz-col nzSpan="8">
-                <h2>President</h2>
-                <nz-radio-group [(ngModel)]="President">
-                    <label nz-radio nzValue="pA">President A</label>
-                    <label nz-radio nzValue="pB">President B</label>
-                    <label nz-radio nzValue="pC">President C</label>
-                </nz-radio-group>
-            </div>
-        <div nz-col nzSpan="8"></div>
+        <div nz-col nzSpan="12" nzOffset="7"><h2>President</h2></div>
     </div>
+    <div class="space"></div>
+      <div nz-row>
+        <div nz-col nzSpan="12" nzOffset="7">
+                <nz-radio-group [(ngModel)]="President" nzButtonStyle="solid">
+                    <div *ngFor="">
 
-    <div nz-row>
-        <div nz-col nzSpan="8"></div>
-            <div nz-col nzSpan="8">
-                
-                <h2>Vice President</h2>
-                <nz-radio-group [(ngModel)]="Vpresident">
-                    <label nz-radio nzValue="vpA">Vice President A</label>
-                    <label nz-radio nzValue="vpB">Vice President B</label>
-                    <label nz-radio nzValue="vpC">Vice President C</label>
+                    <label nz-radio-button nzValue="pA">President A</label>
+                    <label nz-radio-button nzValue="pB">President B</label>
+                    <label nz-radio-button nzValue="pC">President C</label>
+                </div>
                 </nz-radio-group>
             </div>
-        <div nz-col nzSpan="8"></div>
     </div>
-
+    <div class="space"></div>
     <div nz-row>
-        <div nz-col nzSpan="8"></div>
-            <div nz-col nzSpan="8">
-                <h2>Secretary</h2>
-                <nz-radio-group [(ngModel)]="Secretary">
-                    <label nz-radio nzValue="sA">Secretary A</label>
-                    <label nz-radio nzValue="sB">Secretary B</label>
-                    <label nz-radio nzValue="sC">Secretary C</label>
+        <div nz-col nzSpan="12" nzOffset="7"><h2>Vice President</h2></div>
+    </div>
+    <div class="space"></div>
+      <div nz-row>
+        <div nz-col nzSpan="12" nzOffset="7">
+                <nz-radio-group [(ngModel)]="Vpresident"nzButtonStyle="solid">
+                    <label nz-radio-button nzValue="vpA">Vice President A</label>
+                    <label nz-radio-button nzValue="vpB">Vice President B</label>
+                    <label nz-radio-button nzValue="vpC">Vice President C</label>
                 </nz-radio-group>
             </div>
-        <div nz-col nzSpan="8"></div>
     </div>
-    <button nz-button nzType="primary" (click)= "tallyVote()">submit</button>
+    <div class="space"></div>
+    <div nz-row>
+        <div nz-col nzSpan="12" nzOffset="7"><h2>Secretary</h2></div>
+    </div>
+    <div class="space"></div>
+      <div nz-row>
+        <div nz-col nzSpan="12" nzOffset="7">
+            <nz-radio-group [(ngModel)]="Secretary"nzButtonStyle="solid">
+                <label nz-radio-button nzValue="sA">Secretary A</label>
+                <label nz-radio-button nzValue="sB">Secretary B</label>
+                <label nz-radio-button nzValue="sC">Secretary C</label>
+            </nz-radio-group>
+        </div>
+    </div>
+    <div class="space1"></div>
+    <div nz-row>
+        <div nz-col nzSpan="12" nzOffset="10">
+            <button nz-button nzType="primary" (click)= "tallyVote()">submit</button>
+        </div>
+    </div>
 </div>
-
 <ng-template #elseBlock>
 <nz-result
       nzStatus="success"
@@ -49,3 +58,4 @@
     >
 </nz-result>
 </ng-template>
+

@@ -18,13 +18,13 @@
            <li nz-menu-item nzMatchRouter>
              <a routerLink="/welcome">Vote Tally</a>
            </li>
-           <li nz-menu-item nzMatchRouter>
+           <li nz-menu-item nzMatchRouter *ngIf="checkUser == true;">
              <a routerLink="/account">Accounts</a>
            </li>
            <li nz-menu-item nzMatchRouter>
              <a routerLink="/Vote">Vote</a>
            </li>
-           <li nz-menu-item nzMatchRouter>
+           <li nz-menu-item nzMatchRouter *ngIf="checkUser == true;">
             <a routerLink="/Candidates">Candidates</a>
           </li>
          </ul>
@@ -59,3 +59,4 @@
  <ng-template #elseBlock>
      <router-outlet></router-outlet>
    </ng-template>
+   

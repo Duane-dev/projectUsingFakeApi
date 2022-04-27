@@ -1,14 +1,6 @@
-[nz-radio] {
-    display: block;
-    height: 32px;
-    line-height: 32px;
-  }
-  input {
-    width: 100px;
-    margin-left: 10px;
-  }
-  .background{
-    background-color: #b4b4a6;
-    height: 100vh;
-  }
-  
+.space{
+  margin-top: 20px;
+}
+.space1{
+  margin-top: 50px;;
+}
