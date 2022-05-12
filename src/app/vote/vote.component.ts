@@ -17,6 +17,9 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./vote.component.css']
 })
 export class VoteComponent implements OnInit {
+  presidentData !: any;
+  vPresidentData !: any;
+  secretaryData !: any;
   President = '';
   Vpresident = '';
   Secretary = '';
@@ -30,7 +33,10 @@ export class VoteComponent implements OnInit {
 
   ngOnInit(): void {
     this.vstat = this.localStorageItem();
-    // console.log(localStorage.getItem('sessionUserId'))
+    this.getAllPresident();
+    this.getAllVpresident();
+    this.getAllSecretary();
+    // console.log{this}
     
   }
   tallyVote(){
@@ -81,6 +87,24 @@ export class VoteComponent implements OnInit {
       return false;
     };
   } 
+  getAllPresident(){
+    this.api.getPresident()
+    .subscribe(res=>{
+      this.presidentData = res;
+    })
+  }
+  getAllVpresident(){
+    this.api.getVpresident()
+    .subscribe(res=>{
+      this.vPresidentData = res;
+    })
+  }
+  getAllSecretary(){
+    this.api.getSecretary()
+    .subscribe(res=>{
+      this.secretaryData = res;
+    })
+  }
   // public localStorageItemId(): string {
   //  this.uId = localStorage.getItem("sessionUserId")
   // } 

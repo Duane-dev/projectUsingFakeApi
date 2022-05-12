@@ -74,8 +74,50 @@
     {
       "id": 1,
       "name": "President B",
-      "position": "President ",
+      "position": "President",
       "posCode": "pB"
+    },
+    {
+      "id": 2,
+      "name": "President C",
+      "position": "President",
+      "posCode": "pC"
+    },
+    {
+      "id": 3,
+      "name": "Vice-President A",
+      "position": "Vice-President",
+      "posCode": "vpA"
+    },
+    {
+      "id": 4,
+      "name": "Vice-President B",
+      "position": "Vice-President",
+      "posCode": "vpB"
+    },
+    {
+      "id": 5,
+      "name": "Vice-President C",
+      "position": "Vice-President",
+      "posCode": "vpC"
+    },
+    {
+      "id": 6,
+      "name": "Secretary A",
+      "position": "Secretary",
+      "posCode": "sA"
+    },
+    {
+      "id": 7,
+      "name": "Secretary B",
+      "position": "Secretary",
+      "posCode": "sB"
+    },
+    {
+      "id": 8,
+      "name": "Secretary C",
+      "position": "Secretary",
+      "posCode": "sC"
     }
   ],
   "Votes": [

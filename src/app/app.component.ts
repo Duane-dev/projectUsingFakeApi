@@ -15,7 +15,7 @@ export class AppComponent  implements OnInit {
   ngOnInit() {
     this.checkStatus = this.localStorageItem();
     this.checkUser = this.localStorageUser();
-    console.log(this.checkUser)
+    // console.log(this.checkUser)
     if(this.checkStatus == false){
       this.router.navigate(['login'])
     }

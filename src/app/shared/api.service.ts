@@ -46,8 +46,20 @@ export class ApiService {
       return res;
     }))
   }
-  getCandidate(){
-    return this.http.get<any>("http://localhost:3000/Candidates")
+  getPresident(){
+    return this.http.get<any>("http://localhost:3000/Candidates/?position=President")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+  getVpresident(){
+    return this.http.get<any>("http://localhost:3000/Candidates/?position=Vice-President")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+  getSecretary(){
+    return this.http.get<any>("http://localhost:3000/Candidates/?position=Secretary")
     .pipe(map((res:any)=>{
       return res;
     }))

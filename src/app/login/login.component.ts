@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
+import DB from '../../../db.json';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +12,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 export class LoginComponent implements OnInit {
   validateForm!: FormGroup;
   checkStatus!: boolean;
-
+  userData :any = DB.Users
   public localStorageItem(): boolean {
     if (localStorage.getItem("sessionUser") == "Admin" || localStorage.getItem("sessionUser") == "User") {
       return true
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private http : HttpClient, private router:Router, private notification: NzNotificationService) {}
 
   ngOnInit(): void {
+    console.log(this.userData)
     this.checkStatus = this.localStorageItem();
     if(this.checkStatus == true){
       this.router.navigate(['welcome'])
@@ -34,9 +36,9 @@ export class LoginComponent implements OnInit {
     });
   }
   login(){
-    this.http.get<any>("http://localhost:3000/users")
-    .subscribe(res=>{
-      const user = res.find((a:any)=>{
+    // this.http.get<any>("http://localhost:3000/users")
+    // .subscribe(res=>{
+      const user = this.userData.find((a:any)=>{
         return a.email === this.validateForm.value.email && a.password === this.validateForm.value.password
     });
     if(user){
@@ -83,13 +85,14 @@ export class LoginComponent implements OnInit {
         
       })
     }
-   },err=>{
-    this.notification.error('Error','Something Went Wrong',{
-      nzDuration: 2000,
-      nzPauseOnHover: false,
-      nzAnimate: true,
+   }
+  //  ,err=>{
+  //   this.notification.error('Error','Something Went Wrong',{
+  //     nzDuration: 2000,
+  //     nzPauseOnHover: false,
+  //     nzAnimate: true,
       
-    })
-   })
-  }
+  //   })
+  //  })
+  // }
 }

@@ -124,7 +124,7 @@ export class CandidatesComponent implements OnInit {
 
     this.api.postCandidate(this.candidatesmodelObj)
     .subscribe(res=>{
-      this.notification.success('Updated','Update Successful',{
+      this.notification.success('Added','Candidate Added Successful',{
         nzDuration: 2000,
         nzPauseOnHover: false,
         nzAnimate: true,
@@ -143,6 +143,7 @@ export class CandidatesComponent implements OnInit {
     })
     this.isVisible = false;
   }
+  
   showModal(row : any){
     this.showAdd = false;
     this.showUpdate = true;
